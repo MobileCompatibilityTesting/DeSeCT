@@ -20,8 +20,10 @@ from datetime import datetime
 tstart = datetime.now()
 
 # DataSet Location:
-dir_file = os.path.dirname(__file__)
-file_path = os.path.join(dir_file, '../Dataset/dataset_desect.xlsx')
+#dir_file = os.path.dirname(__file__)
+dir_file = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(dir_file, 'Dataset/dataset_desect.xlsx')
+print(file_path)
 datasetAll = pd.read_excel( file_path )
 
 #Variables declaration
@@ -269,7 +271,7 @@ toolbox.register("mate", tools.cxTwoPoint)
 toolbox.register("mutate", tools.mutFlipBit, indpb=0.01)
 
 POP_SIZE = 200    # POP_SIZE = Population size
-MAX_GEN = 10000  # MAX_GEN = maximum number of generations
+MAX_GEN = 100  # MAX_GEN = maximum number of generations
 MUT_PROB = 0.001  # MUT_PROB = Probability of mutation that each indivual of the population could be mutated
 CX_PROB = 0.8     # CX_PROB = Probability of CrossOver  
 
