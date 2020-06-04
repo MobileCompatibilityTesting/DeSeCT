@@ -31,8 +31,8 @@ resolutions = []
 versions = []
 networking = []
 apiversion = []
-screenvalor = []
-dpivalor = []
+screenvalue = []
+dpivalue = []
 brand = []
 sensors = []
 
@@ -55,7 +55,7 @@ list_AppCar = {
 
 #Using app information to filter the dataset
 dataset = datasetAll.loc[datasetAll['APIversion'] >= int(list_AppCar['app_sdk_min'])]  
-dataset = dataset.loc[(dataset['ScreenValor'].isin(['normal','small','large','xlarge']))]
+dataset = dataset.loc[(dataset['ScreenValue'].isin(['normal','small','large','xlarge']))]
    
 #Counting UNIQUE values by features in dataset. This features will be used for coverage
 resPxUniqueCount = len(dataset["ResolPix"].value_counts())
@@ -68,8 +68,8 @@ sizes = dataset["Size"].tolist()
 versions = dataset["OSversion"].tolist()
 networking = dataset["Technology"].tolist()
 apiversion = dataset["APIversion"].tolist()
-screenvalor = dataset["ScreenValor"].tolist()
-dpivalor = dataset["dpiValorTxt"].tolist()
+screenvalue = dataset["ScreenValue"].tolist()
+dpivalue = dataset["dpiValueTxt"].tolist()
 brand = dataset["Brand"].tolist()
 sensors = dataset["Sensors"].tolist()
 
@@ -201,7 +201,7 @@ def count_coverage(individual):
             coverage_api.append(apiversion[i]) if not np.isnan(apiversion[i]) else False #Some api data are empty on old devices
             coverage_netwk.append(networking[i])
 #             coverage_versions.append(versions[i])
-            coverage_screen.append((screenvalor[i],dpivalor[i]))
+            coverage_screen.append((screenvalue[i],dpivalue[i]))
                  
 #(Technology) network coverage has several other networks on the same device 
     list_netwk_cov = []
@@ -329,8 +329,8 @@ finalResult = dataset.loc[(dataset['ID'].isin(list_ids))]
 print("Number of selected devices: ", len(finalResult))
 finalResult.to_excel(r'result_withAppInfo10milGen-250.xlsx') #Save result in a file
 
-#Deleting devices with same features ('APIversion', 'ScreenValor', 'dpiValorTxt')
-finalResult_noDuplicate = finalResult.drop_duplicates(subset=['APIversion', 'ScreenValor', 'dpiValorTxt'],keep='last')
+#Deleting devices with same features ('APIversion', 'ScreenValue', 'dpiValueTxt')
+finalResult_noDuplicate = finalResult.drop_duplicates(subset=['APIversion', 'ScreenValue', 'dpiValueTxt'],keep='last')
 print("Number of selected devices (after filter): ", len(finalResult_noDuplicate))
 #finalResult.to_excel(r'result_final_noDuplicate.xlsx')
 
