@@ -94,7 +94,7 @@ list_weights = [0.20, 0.20, 0.30, 0.10, 0.20]
 #list_weights =[resol, tam, api, networking, normal]
 #Densities
 list_densities = ['ldpi', 'mdpi', 'hdpi', 'xhdpi', 'xxhdpi', 'xxxhdpi']
-#Networking list
+#Networking list. UNIQUE values in dataset. This features will be used for coverage
 list_netwk = ['2G', '3G', '4G', '5G']
 #Used to account for coverage of characteristics
 quant_features = len(list_weights)
@@ -287,9 +287,11 @@ stats.register("min", np.min)
 
 
 # Executing the algorithm
-result, log = algorithms.eaMuPlusLambda(pop, 
+
+result, log = algorithms.eaMuPlusLambda(pop, #the next generation population is selected from both the offspring and the population
+#result, log = algorithms.eaMuCommaLambda(pop, #the next generation population is selected from only the offspring.
                                      toolbox, 
-                                     mu=POP_SIZE,       # The number of individuals to select for the next generation.
+                                     mu=int(POP_SIZE/2),       # The number of individuals to select for the next generation.
                                      lambda_= POP_SIZE, # The number of children to produce at each generation.
                                      cxpb= CX_PROB,
                                      mutpb= MUT_PROB, 
@@ -300,9 +302,9 @@ result, log = algorithms.eaMuPlusLambda(pop,
 
 #Selecting One best Individual, could be two, three, etc best.
 # best_item = tools.selBest(result, 1)
-# for individuo in best_item: #or
-# for individuo in hof:
-#     print("Fitness value: ", individuo.fitness)
+# for individualResult in best_item: #or
+# for individualResult in hof:
+#     print("Fitness value: ", individualResult.fitness)
 
 
 #All Pareto fronts results
