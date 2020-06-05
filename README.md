@@ -31,5 +31,5 @@ pip install --user --requirement requirements.txt
 python desect-approach.py 
 ```
 
-This will show 3 graphs; you need to close each graph to see the next one.
+This will show 2 graphs (maximization and minimization); you need to close each graph to see the next one.
 
