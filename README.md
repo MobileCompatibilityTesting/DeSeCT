@@ -6,10 +6,13 @@ The approach is based on DEAP framework to select mobile devices in compatibilit
 
 ## Experimental Data
 
-- The dataset with the devices' features can be found in 'Dataset/dataset_desect.xlsx'
-- The raw data we collected and analyzed in the paper can be found ...??
+- The dataset with the devices' features can be found in 'Dataset/dataset_desect.xlsx'.
+- The raw data we collected and analyzed in the paper can be found in 'RawData' folder.
 
 ## Experiments
+
+- 1st study: Comparing our dataset with Baseline and identified the impact of use Mobile App information for device selection for compatibility testing.
+- 2nd study: Improving the DeSeCT approach making changes on the way of generation of chromossomes values.
 
 ### Install
 
