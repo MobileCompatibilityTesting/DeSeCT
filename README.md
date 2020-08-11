@@ -1,7 +1,7 @@
 # DeSeCT
 Device Selection for Compatibility Testing
 
-This page contains the source code of DeSeCT, as well as instructions to replicate the experiments reported in a paper submitted to SSBSE 2020.
+This page contains the source code of DeSeCT, as well as instructions to replicate the experiments reported in a paper submitted to SAST 2020.
 The approach is based on DEAP framework to select mobile devices in compatibility testing.
 
 ## Experimental Data
